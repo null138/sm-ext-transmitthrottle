@@ -18,7 +18,7 @@
 
 - This extension is fragile because it relies on hardcoded addresses and offsets from the SDKHooks. With every SourceMod update, there is a risk that these values will break.
 
-- If something stops working after an update, check lines 228 and 328 where the hardcoded addresses are defined. The original ASM snippets are kept next to them for reference.
+- If something stops working after an update, check lines 236 and 337 where the hardcoded addresses are defined. The original ASM snippets are kept next to them for reference.
 
 - To fix issues, update the offsets using a disassembler like IDA for the function SDKHooks::Hook_SetTransmit(CCheckTransmitInfo *, bool).
 
