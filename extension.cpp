@@ -28,8 +28,8 @@
 #  define PLAT_LINUX32
 #endif
 
-#define MAX_EDICTS_N 2048
-#define MAX_CLIENTS	66
+#define MAX_EDICTS_N 2049
+#define MAX_CLIENTS	65
 
 // 15.05.2026 
 // -------------------------- WARNING!!! MUST READ!!! -------------------------- 
