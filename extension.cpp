@@ -41,7 +41,7 @@
 
 // -------------------------- MAINTAINING FUNCTIONALITY --------------------------
 // if anything breaks because of sourcemod updates:
-// check lines 228+ and 328+ and look for the hardcoded addresses there. i kept the current ASM codes next to addresses for the reference.
+// check lines 236+ and 337+ and look for the hardcoded addresses there. i kept the current ASM codes next to addresses for the reference.
 // update them using a dump from tools like ida for the function SDKHooks::Hook_SetTransmit(CCheckTransmitInfo *, bool)
 // take the first 16 bytes on linux
 // then find the result value inside the same function below the Call(), usually the "cmp eax, 3" part (included).
