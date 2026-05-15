@@ -9,6 +9,23 @@
 
 - This eliminates excessive per tick calls caused by plugins using SetTransmit. No more up to 64 × 2048 calls per tick across every plugins. Instead, each entity is processed at a fixed interval, not per tick.
 
+# How it works:
+```cpp
+void Hook_SetTransmit(CCheckTransmitInfo *pInfo, bool bAlways)
+{
+    // patch 1 - throttle check, force return early
+    throttle_hook();
+    
+    cell_t result = Call(META_IFACEPTR(CBaseEntity), SDKHook_SetTransmit, gamehelpers->IndexOfEdict(pInfo->m_pClientEnt));
+    
+    // patch 2 — cache result so throttled calls reuse it
+    result_hook(result);
+    
+    if(result >= Pl_Handled) 
+      RETURN_META(MRES_SUPERCEDE);
+    RETURN_META(MRES_IGNORED);
+}
+```
 # Note:
 - To change the interval (0.4 by default), set the convar value of "transmit_throttle_interval" to any desired value.
 - Create an empty file named TransmitThrottle.autoload next to the extension file, otherwise SourceMod will not load it automatically.
