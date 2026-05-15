@@ -11,7 +11,8 @@
 
 # How it works:
 ```cpp
-void Hook_SetTransmit(CCheckTransmitInfo *pInfo, bool bAlways)
+// actual sdkhook function
+void SDKHooks::Hook_SetTransmit(CCheckTransmitInfo *pInfo, bool bAlways)
 {
     // patch 1 - throttle check, force return early
     throttle_hook();
